@@ -94,7 +94,7 @@
 {
     DLog(@"");
     [super viewWillAppear:animated];
-    self.contentSizeForViewInPopover = self.view.frame.size;
+    self.preferredContentSize = self.view.frame.size;
 
     self.title = (sessionData.currentProvider) ? sessionData.currentProvider.friendlyName : NSLocalizedString(@"Loading", nil);
 

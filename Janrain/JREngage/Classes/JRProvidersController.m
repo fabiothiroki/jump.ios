@@ -199,7 +199,7 @@
 {
     DLog(@"");
     [super viewWillAppear:animated];
-    self.contentSizeForViewInPopover = self.view.frame.size;
+    self.preferredContentSize = self.view.frame.size;
 
     // Load the custom background view, if there is one.
     if ([customInterface objectForKey:kJRAuthenticationBackgroundImageView])

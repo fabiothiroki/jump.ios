@@ -458,7 +458,7 @@ myUserName, mySignOutButton, mySharedCheckMark, mySharedLabel;
 {
     DLog(@"");
     [super viewWillAppear:animated];
-    self.contentSizeForViewInPopover = self.view.frame.size;
+    self.preferredContentSize = self.view.frame.size;
 
     if (!self.titleView)
     {
@@ -1414,10 +1414,9 @@ myUserName, mySignOutButton, mySharedCheckMark, mySharedLabel;
         myTitleLabel.text = self.currentActivity.resourceTitle;
 
         // TODO: Verify change made below
-        CGSize shouldBeTitleSize =
-                [myTitleLabel.text sizeWithFont:myTitleLabel.font
-                              constrainedToSize:CGSizeMake(title_w, MBC_MAX_HEIGHT)
-                                  lineBreakMode:(int)JR_LINE_BREAK_MODE_TAIL_TRUNCATION];
+        NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+        paragraphStyle.lineBreakMode = JR_LINE_BREAK_MODE_TAIL_TRUNCATION;
+        CGSize shouldBeTitleSize = [myTitleLabel.text boundingRectWithSize:CGSizeMake(title_w, MBC_MAX_HEIGHT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : myTitleLabel.font, NSParagraphStyleAttributeName : paragraphStyle} context:nil].size;
         shouldBeTitleHeight = shouldBeTitleSize.height;
     }
 
@@ -1428,10 +1427,9 @@ myUserName, mySignOutButton, mySharedCheckMark, mySharedLabel;
     {
         myDescriptionLabel.text = self.currentActivity.resourceDescription;
 
-        CGSize shouldBeDescriptionSize =
-                [myDescriptionLabel.text sizeWithFont:myDescriptionLabel.font
-                                    constrainedToSize:CGSizeMake(descr_w, MBC_MAX_HEIGHT)
-                                        lineBreakMode:(int)JR_LINE_BREAK_MODE_TAIL_TRUNCATION];
+        NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+        paragraphStyle.lineBreakMode = JR_LINE_BREAK_MODE_TAIL_TRUNCATION;
+        CGSize shouldBeDescriptionSize = [myDescriptionLabel.text boundingRectWithSize:CGSizeMake(descr_w, MBC_MAX_HEIGHT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : myDescriptionLabel.font, NSParagraphStyleAttributeName : paragraphStyle} context:nil].size;
         shouldBeDescriptionHeight = shouldBeDescriptionSize.height;
     }
 
@@ -1519,10 +1517,10 @@ myUserName, mySignOutButton, mySharedCheckMark, mySharedLabel;
                 and 3 lines) */
                 CGSize titleSize =
                         CGSizeMake(title_w, MBC_MAX_HEIGHT - MBC_INTERIOR_PADDING - shouldBeDescriptionHeight);
-                CGSize shouldBeTitleSize =
-                        [myTitleLabel.text sizeWithFont:myTitleLabel.font
-                                      constrainedToSize:titleSize
-                                          lineBreakMode:(int)JR_LINE_BREAK_MODE_TAIL_TRUNCATION];
+                NSMutableParagraphStyle * paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+                paragraphStyle.lineBreakMode = JR_LINE_BREAK_MODE_TAIL_TRUNCATION;
+                
+                CGSize shouldBeTitleSize = [myTitleLabel.text boundingRectWithSize:titleSize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : myTitleLabel.font, NSParagraphStyleAttributeName : paragraphStyle} context:nil].size;
                 shouldBeTitleHeight = shouldBeTitleSize.height;
 
                 title_h = shouldBeTitleHeight;

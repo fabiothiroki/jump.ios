@@ -334,7 +334,6 @@ static JRConnectionManager *singleton = nil;
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
-    DLog(@"data=%@", data.base64Encoding);
     for (ConnectionData *connectionData in [self connectionBuffers])
     {
         if (connectionData.connection == connection)

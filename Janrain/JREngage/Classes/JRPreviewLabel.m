@@ -62,9 +62,9 @@
 
         NSString *testString = [self substringToIndex:i];
 
-        CGSize stringSize = [testString sizeWithFont:font
-                                   constrainedToSize:CGSizeMake(size.width, size.height + lineHeight)
-                                       lineBreakMode:(int)lineBreakMode];
+        NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+        paragraphStyle.lineBreakMode = lineBreakMode;
+        CGSize stringSize = [testString boundingRectWithSize:CGSizeMake(size.width, size.height + lineHeight) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : font, NSParagraphStyleAttributeName : paragraphStyle} context:nil].size;
 
         if (stringSize.height > size.height || stringSize.width > size.width)
             break;
@@ -239,22 +239,25 @@
     NSString *thirdLineOfText  = @"";
     NSString *remainingText    = @"";
 
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    paragraphStyle.lineBreakMode = JR_LINE_BREAK_MODE_TAIL_TRUNCATION;
+    
     CGSize sizeOfUrl = (!url) ? CGSizeMake(0, 0) :
-                                [url sizeWithFont:font
-                                constrainedToSize:CGSizeMake(urlMaxWidth, lineHeight)
-                                    lineBreakMode:(int)JR_LINE_BREAK_MODE_TAIL_TRUNCATION];
-
+    [url boundingRectWithSize:CGSizeMake(urlMaxWidth, lineHeight) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : font, NSParagraphStyleAttributeName : paragraphStyle} context:nil].size;
+    
+    paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    paragraphStyle.lineBreakMode = JR_LINE_BREAK_MODE_TAIL_TRUNCATION;
+    
     CGSize sizeOfUsername = (!username) ? CGSizeMake(0, 0):
-                                          [username sizeWithFont:boldFont
-                                               constrainedToSize:CGSizeMake(usernameMaxWidth, lineHeight)
-                                                   lineBreakMode:(int)JR_LINE_BREAK_MODE_TAIL_TRUNCATION];
-
-
+    [username boundingRectWithSize:CGSizeMake(usernameMaxWidth, lineHeight) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : boldFont, NSParagraphStyleAttributeName : paragraphStyle} context:nil].size;
+    
+    
     CGFloat remainingLineOneWidth = lineWidth - sizeOfUsername.width - usernamePadding;
-
-    sizeOfFirstLineOfText = [userText sizeWithFont:font
-                                 constrainedToSize:CGSizeMake(remainingLineOneWidth, superviewHeight)
-                                     lineBreakMode:(int)JR_LINE_BREAK_MODE_WORD_WRAP];
+    
+    paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    paragraphStyle.lineBreakMode = JR_LINE_BREAK_MODE_WORD_WRAP;
+    
+    sizeOfFirstLineOfText = [userText boundingRectWithSize:CGSizeMake(remainingLineOneWidth, superviewHeight) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : font, NSParagraphStyleAttributeName : paragraphStyle} context:nil].size;
 
     if (sizeOfFirstLineOfText.height <= lineHeight)
     {
@@ -274,9 +277,10 @@
         if (userText.length > lengthOfFirstLineOfText)
             remainingText = [userText substringFromIndex:lengthOfFirstLineOfText];
 
-        sizeOfSecondLineOfText = [remainingText sizeWithFont:font
-                                           constrainedToSize:CGSizeMake(lineWidth, superviewHeight)
-                                               lineBreakMode:(int)JR_LINE_BREAK_MODE_WORD_WRAP];
+        NSMutableParagraphStyle * paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+        paragraphStyle.lineBreakMode = JR_LINE_BREAK_MODE_WORD_WRAP;
+        
+        sizeOfSecondLineOfText = [remainingText boundingRectWithSize:CGSizeMake(lineWidth, superviewHeight) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : font, NSParagraphStyleAttributeName : paragraphStyle} context:nil].size;
 
         if (sizeOfSecondLineOfText.height <= lineHeight)
         {
@@ -296,9 +300,10 @@
             if (remainingText.length > lengthOfSecondLineOfText)
                 thirdLineOfText = [remainingText substringFromIndex:lengthOfSecondLineOfText];
 
-            sizeOfThirdLineOfText = [thirdLineOfText sizeWithFont:font
-                                                constrainedToSize:CGSizeMake(lineWidth - sizeOfUrl.width - urlPadding, lineHeight)
-                                                    lineBreakMode:(int)JR_LINE_BREAK_MODE_TAIL_TRUNCATION];
+            NSMutableParagraphStyle * paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+            paragraphStyle.lineBreakMode = JR_LINE_BREAK_MODE_TAIL_TRUNCATION;
+            
+            sizeOfThirdLineOfText = [thirdLineOfText boundingRectWithSize:CGSizeMake(lineWidth - sizeOfUrl.width - urlPadding, lineHeight) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : font, NSParagraphStyleAttributeName : paragraphStyle} context:nil].size;
         }
     }
 

@@ -158,7 +158,7 @@
     DLog(@"");
     [super viewDidAppear:animated];
 
-    self.contentSizeForViewInPopover = self.view.frame.size;
+    self.preferredContentSize = self.view.frame.size;
 
     UITableViewCell *cell = [self getTableCell];
     UITextField *textField = [self getTextField:cell];
