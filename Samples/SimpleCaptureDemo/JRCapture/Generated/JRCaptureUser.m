@@ -236,21 +236,34 @@
 {
     NSString *_aboutMe;
     JRDate *_birthday;
+    NSString *_ccomGuid;
     NSString *_currentLocation;
+    JRDateTime *_deactivateAccount;
+    NSString *_dietaryPreferences;
     JRJsonObject *_display;
     NSString *_displayName;
     NSString *_email;
     JRDateTime *_emailVerified;
     NSString *_familyName;
+    NSString *_favoriteDepartment;
+    NSString *_favoriteStore;
+    NSString *_ficAltId;
+    NSString *_freshIdeasCardNumber;
     NSString *_gender;
     NSString *_givenName;
     JRDateTime *_lastLogin;
     NSString *_middleName;
+    JRBoolean *_optInEmail;
+    JRDateTime *_optInEmailDate;
+    JRBoolean *_optInSMS;
+    JRDateTime *_optInSMSDate;
     JRPassword *_password;
     NSArray *_photos;
     JRPrimaryAddress *_primaryAddress;
     NSArray *_profiles;
     NSArray *_statuses;
+    JRBoolean *_termsAndConditions;
+    JRDateTime *_termsAndConditionsDate;
     JRObjectId *_captureUserId;
     JRDateTime *_lastUpdated;
     JRUuid *_uuid;
@@ -282,6 +295,18 @@
     _birthday = [newBirthday copy];
 }
 
+- (NSString *)ccomGuid
+{
+    return _ccomGuid;
+}
+
+- (void)setCcomGuid:(NSString *)newCcomGuid
+{
+    [self.dirtyPropertySet addObject:@"ccomGuid"];
+    
+    _ccomGuid = [newCcomGuid copy];
+}
+
 - (NSString *)currentLocation
 {
     return _currentLocation;
@@ -292,6 +317,30 @@
     [self.dirtyPropertySet addObject:@"currentLocation"];
 
     _currentLocation = [newCurrentLocation copy];
+}
+
+- (JRDateTime *)deactivateAccount
+{
+    return _deactivateAccount;
+}
+
+- (void)setDeactivateAccount:(JRDateTime *)newDeactivateAccount
+{
+    [self.dirtyPropertySet addObject:@"deactivateAccount"];
+
+    _deactivateAccount = [newDeactivateAccount copy];
+}
+
+- (NSString *)dietaryPreferences
+{
+    return _dietaryPreferences;
+    }
+
+- (void)setDietaryPreferences:(NSString *)newDietaryPreferences
+{
+    [self.dirtyPropertySet addObject:@"dietaryPreferences"];
+
+    _dietaryPreferences = [newDietaryPreferences copy];
 }
 
 - (JRJsonObject *)display
@@ -354,6 +403,54 @@
     _familyName = [newFamilyName copy];
 }
 
+- (NSString *)favoriteDepartment
+{
+    return _favoriteDepartment;
+}
+
+- (void)setFavoriteDepartment:(NSString *)newFavoriteDepartment
+{
+    [self.dirtyPropertySet addObject:@"favoriteDepartment"];
+
+    _favoriteDepartment = [newFavoriteDepartment copy];
+}
+
+- (NSString *)favoriteStore
+{
+    return _favoriteStore;
+}
+
+- (void)setFavoriteStore:(NSString *)newFavoriteStore
+{
+    [self.dirtyPropertySet addObject:@"favoriteStore"];
+    
+    _favoriteStore = [newFavoriteStore copy];
+}
+
+- (NSString *)ficAltId
+{
+    return _ficAltId;
+}
+
+- (void)setFicAltId:(NSString *)newFicAltId
+{
+    [self.dirtyPropertySet addObject:@"ficAltId"];
+
+    _ficAltId = [newFicAltId copy];
+}
+
+- (NSString *)freshIdeasCardNumber
+{
+    return _freshIdeasCardNumber;
+    }
+
+- (void)setFreshIdeasCardNumber:(NSString *)newFreshIdeasCardNumber
+{
+    [self.dirtyPropertySet addObject:@"freshIdeasCardNumber"];
+
+    _freshIdeasCardNumber = [newFreshIdeasCardNumber copy];
+}
+
 - (NSString *)gender
 {
     return _gender;
@@ -400,6 +497,78 @@
     [self.dirtyPropertySet addObject:@"middleName"];
 
     _middleName = [newMiddleName copy];
+}
+
+- (JRBoolean *)optInEmail
+{
+    return _optInEmail;
+}
+
+- (void)setOptInEmail:(JRBoolean *)newOptInEmail
+{
+    [self.dirtyPropertySet addObject:@"optInEmail"];
+    
+    _optInEmail = [newOptInEmail copy];
+}
+
+- (BOOL)getOptInEmailBoolValue
+{
+    return [_optInEmail boolValue];
+}
+
+- (void)setOptInEmailWithBool:(BOOL)boolVal
+{
+    [self.dirtyPropertySet addObject:@"optInEmail"];
+    
+    _optInEmail = [NSNumber numberWithBool:boolVal];
+}
+
+- (JRDateTime *)optInEmailDate
+{
+    return _optInEmailDate;
+}
+
+- (void)setOptInEmailDate:(JRDateTime *)newOptInEmailDate
+{
+    [self.dirtyPropertySet addObject:@"optInEmailDate"];
+    
+    _optInEmailDate = [newOptInEmailDate copy];
+}
+
+- (JRBoolean *)optInSMS
+{
+    return _optInSMS;
+}
+
+- (void)setOptInSMS:(JRBoolean *)newOptInSMS
+{
+    [self.dirtyPropertySet addObject:@"optInSMS"];
+    
+    _optInSMS = [newOptInSMS copy];
+}
+
+- (BOOL)getOptInSMSBoolValue
+{
+    return [_optInSMS boolValue];
+}
+
+- (void)setOptInSMSWithBool:(BOOL)boolVal
+{
+    [self.dirtyPropertySet addObject:@"optInSMS"];
+    
+    _optInSMS = [NSNumber numberWithBool:boolVal];
+}
+
+- (JRDateTime *)optInSMSDate
+{
+    return _optInSMSDate;
+}
+
+- (void)setOptInSMSDate:(JRDateTime *)newOptInSMSDate
+{
+    [self.dirtyPropertySet addObject:@"optInSMSDate"];
+    
+    _optInSMSDate = [newOptInSMSDate copy];
 }
 
 - (JRPassword *)password
@@ -456,6 +625,41 @@
 - (void)setStatuses:(NSArray *)newStatuses
 {
     _statuses = [newStatuses copy];
+}
+- (JRBoolean *)termsAndConditions
+{
+    return _termsAndConditions;
+}
+
+- (void)setTermsAndConditions:(JRBoolean *)newTermsAndConditions
+{
+    [self.dirtyPropertySet addObject:@"termsAndConditions"];
+    
+    _termsAndConditions = [newTermsAndConditions copy];
+}
+
+- (BOOL)getTermsAndConditionsBoolValue
+{
+    return [_termsAndConditions boolValue];
+}
+
+- (void)setTermsAndConditionsWithBool:(BOOL)boolVal
+{
+    [self.dirtyPropertySet addObject:@"termsAndConditions"];
+    
+    _termsAndConditions = [NSNumber numberWithBool:boolVal] ;
+}
+
+- (JRDateTime *)termsAndConditionsDate
+{
+    return _termsAndConditionsDate;
+}
+
+- (void)setTermsAndConditionsDate:(JRDateTime *)newTermsAndConditionsDate
+{
+    [self.dirtyPropertySet addObject:@"termsAndConditionsDate"];
+    
+    _termsAndConditionsDate = [newTermsAndConditionsDate copy];
 }
 
 - (JRObjectId *)captureUserId
@@ -553,14 +757,20 @@
 - (NSDictionary*)newDictionaryForEncoder:(BOOL)forEncoder
 {
     NSMutableDictionary *dictionary =
-        [NSMutableDictionary dictionaryWithCapacity:10];
-
+    [NSMutableDictionary dictionaryWithCapacity:10];
+    
     [dictionary setObject:(self.aboutMe ? self.aboutMe : [NSNull null])
                    forKey:@"aboutMe"];
     [dictionary setObject:(self.birthday ? [self.birthday stringFromISO8601Date] : [NSNull null])
                    forKey:@"birthday"];
+    [dictionary setObject:(self.ccomGuid ? self.ccomGuid : [NSNull null])
+                   forKey:@"ccomGuid"];
     [dictionary setObject:(self.currentLocation ? self.currentLocation : [NSNull null])
                    forKey:@"currentLocation"];
+    [dictionary setObject:(self.deactivateAccount ? [self.deactivateAccount stringFromISO8601DateTime] : [NSNull null])
+                   forKey:@"deactivateAccount"];
+    [dictionary setObject:(self.dietaryPreferences ? self.dietaryPreferences : [NSNull null])
+                   forKey:@"dietaryPreferences"];
     [dictionary setObject:(self.display ? self.display : [NSNull null])
                    forKey:@"display"];
     [dictionary setObject:(self.displayName ? self.displayName : [NSNull null])
@@ -571,6 +781,14 @@
                    forKey:@"emailVerified"];
     [dictionary setObject:(self.familyName ? self.familyName : [NSNull null])
                    forKey:@"familyName"];
+    [dictionary setObject:(self.favoriteDepartment ? self.favoriteDepartment : [NSNull null])
+                   forKey:@"favoriteDepartment"];
+    [dictionary setObject:(self.favoriteStore ? self.favoriteStore : [NSNull null])
+                   forKey:@"favoriteStore"];
+    [dictionary setObject:(self.ficAltId ? self.ficAltId : [NSNull null])
+                   forKey:@"ficAltId"];
+    [dictionary setObject:(self.freshIdeasCardNumber ? self.freshIdeasCardNumber : [NSNull null])
+                   forKey:@"freshIdeasCardNumber"];
     [dictionary setObject:(self.gender ? self.gender : [NSNull null])
                    forKey:@"gender"];
     [dictionary setObject:(self.givenName ? self.givenName : [NSNull null])
@@ -579,6 +797,14 @@
                    forKey:@"lastLogin"];
     [dictionary setObject:(self.middleName ? self.middleName : [NSNull null])
                    forKey:@"middleName"];
+    [dictionary setObject:(self.optInEmail ? [NSNumber numberWithBool:[self.optInEmail boolValue]] : [NSNull null])
+                   forKey:@"optInEmail"];
+    [dictionary setObject:(self.optInEmailDate ? [self.optInEmailDate stringFromISO8601DateTime] : [NSNull null])
+                   forKey:@"optInEmailDate"];
+    [dictionary setObject:(self.optInSMS ? [NSNumber numberWithBool:[self.optInSMS boolValue]] : [NSNull null])
+                   forKey:@"optInSMS"];
+    [dictionary setObject:(self.optInSMSDate ? [self.optInSMSDate stringFromISO8601DateTime] : [NSNull null])
+                   forKey:@"optInSMSDate"];
     [dictionary setObject:(self.password ? self.password : [NSNull null])
                    forKey:@"password"];
     [dictionary setObject:(self.photos ? [self.photos arrayOfPhotosDictionariesFromPhotosElementsForEncoder:forEncoder] : [NSNull null])
@@ -589,15 +815,19 @@
                    forKey:@"profiles"];
     [dictionary setObject:(self.statuses ? [self.statuses arrayOfStatusesDictionariesFromStatusesElementsForEncoder:forEncoder] : [NSNull null])
                    forKey:@"statuses"];
-    [dictionary setObject:(self.captureUserId ? [NSNumber numberWithInteger:[self.captureUserId integerValue]] : [NSNull null])
-                   forKey:@"id"];
-    [dictionary setObject:(self.lastUpdated ? [self.lastUpdated stringFromISO8601DateTime] : [NSNull null])
-                   forKey:@"lastUpdated"];
-    [dictionary setObject:(self.uuid ? self.uuid : [NSNull null])
-                   forKey:@"uuid"];
+    [dictionary setObject:(self.termsAndConditions ? [NSNumber numberWithBool:[self.termsAndConditions boolValue]] : [NSNull null])
+                   forKey:@"termsAndConditions"];
+    [dictionary setObject:(self.termsAndConditionsDate ? [self.termsAndConditionsDate stringFromISO8601DateTime] : [NSNull null])
+                   forKey:@"termsAndConditionsDate"];
     [dictionary setObject:(self.created ? [self.created stringFromISO8601DateTime] : [NSNull null])
                    forKey:@"created"];
-
+    [dictionary setObject:(self.lastUpdated ? [self.lastUpdated stringFromISO8601DateTime] : [NSNull null])
+                   forKey:@"lastUpdated"];
+    [dictionary setObject:(self.captureUserId ? [NSNumber numberWithInteger:[self.captureUserId integerValue]] : [NSNull null])
+                   forKey:@"id"];
+    [dictionary setObject:(self.uuid ? self.uuid : [NSNull null])
+                   forKey:@"uuid"];
+    
     if (forEncoder)
     {
         [dictionary setObject:([self.dirtyPropertySet allObjects] ? [self.dirtyPropertySet allObjects] : [NSArray array])
@@ -607,7 +837,7 @@
         [dictionary setObject:[NSNumber numberWithBool:self.canBeUpdatedOnCapture]
                        forKey:@"canBeUpdatedOnCapture"];
     }
-
+    
     return [NSDictionary dictionaryWithDictionary:dictionary];
 }
 
@@ -615,106 +845,158 @@
 {
     if (!dictionary)
         return nil;
-
+    
     JRCaptureUser *captureUser = [JRCaptureUser captureUser];
-
+    
     NSSet *dirtyPropertySetCopy = nil;
     if (fromDecoder)
     {
         dirtyPropertySetCopy = [NSSet setWithArray:[dictionary objectForKey:@"dirtyPropertiesSet"]];
         captureUser.captureObjectPath = ([dictionary objectForKey:@"captureObjectPath"] == [NSNull null] ?
-                                                              nil : [dictionary objectForKey:@"captureObjectPath"]);
+                                         nil : [dictionary objectForKey:@"captureObjectPath"]);
     }
-
+    
     captureUser.aboutMe =
-        [dictionary objectForKey:@"aboutMe"] != [NSNull null] ? 
-        [dictionary objectForKey:@"aboutMe"] : nil;
-
+    [dictionary objectForKey:@"aboutMe"] != [NSNull null] ?
+    [dictionary objectForKey:@"aboutMe"] : nil;
+    
     captureUser.birthday =
-        [dictionary objectForKey:@"birthday"] != [NSNull null] ? 
-        [JRDate dateFromISO8601DateString:[dictionary objectForKey:@"birthday"]] : nil;
-
+    [dictionary objectForKey:@"birthday"] != [NSNull null] ?
+    [JRDate dateFromISO8601DateString:[dictionary objectForKey:@"birthday"]] : nil;
+    
+    captureUser.ccomGuid =
+    [dictionary objectForKey:@"ccomGuid"] != [NSNull null] ?
+    [dictionary objectForKey:@"ccomGuid"] : nil;
+    
     captureUser.currentLocation =
-        [dictionary objectForKey:@"currentLocation"] != [NSNull null] ? 
-        [dictionary objectForKey:@"currentLocation"] : nil;
-
+    [dictionary objectForKey:@"currentLocation"] != [NSNull null] ?
+    [dictionary objectForKey:@"currentLocation"] : nil;
+    
+    captureUser.deactivateAccount =
+    [dictionary objectForKey:@"deactivateAccount"] != [NSNull null] ?
+    [JRDateTime dateFromISO8601DateTimeString:[dictionary objectForKey:@"deactivateAccount"]] : nil;
+    
+    captureUser.dietaryPreferences =
+    [dictionary objectForKey:@"dietaryPreferences"] != [NSNull null] ?
+    [dictionary objectForKey:@"dietaryPreferences"] : nil;
+    
     captureUser.display =
-        [dictionary objectForKey:@"display"] != [NSNull null] ? 
-        [dictionary objectForKey:@"display"] : nil;
-
+    [dictionary objectForKey:@"display"] != [NSNull null] ?
+    [dictionary objectForKey:@"display"] : nil;
+    
     captureUser.displayName =
-        [dictionary objectForKey:@"displayName"] != [NSNull null] ? 
-        [dictionary objectForKey:@"displayName"] : nil;
-
+    [dictionary objectForKey:@"displayName"] != [NSNull null] ?
+    [dictionary objectForKey:@"displayName"] : nil;
+    
     captureUser.email =
-        [dictionary objectForKey:@"email"] != [NSNull null] ? 
-        [dictionary objectForKey:@"email"] : nil;
-
+    [dictionary objectForKey:@"email"] != [NSNull null] ?
+    [dictionary objectForKey:@"email"] : nil;
+    
     captureUser.emailVerified =
-        [dictionary objectForKey:@"emailVerified"] != [NSNull null] ? 
-        [JRDateTime dateFromISO8601DateTimeString:[dictionary objectForKey:@"emailVerified"]] : nil;
-
+    [dictionary objectForKey:@"emailVerified"] != [NSNull null] ?
+    [JRDateTime dateFromISO8601DateTimeString:[dictionary objectForKey:@"emailVerified"]] : nil;
+    
     captureUser.familyName =
-        [dictionary objectForKey:@"familyName"] != [NSNull null] ? 
-        [dictionary objectForKey:@"familyName"] : nil;
-
+    [dictionary objectForKey:@"familyName"] != [NSNull null] ?
+    [dictionary objectForKey:@"familyName"] : nil;
+    
+    captureUser.favoriteDepartment =
+    [dictionary objectForKey:@"favoriteDepartment"] != [NSNull null] ?
+    [dictionary objectForKey:@"favoriteDepartment"] : nil;
+    
+    captureUser.favoriteStore =
+    [dictionary objectForKey:@"favoriteStore"] != [NSNull null] ?
+    [dictionary objectForKey:@"favoriteStore"] : nil;
+    
+    captureUser.ficAltId =
+    [dictionary objectForKey:@"ficAltId"] != [NSNull null] ?
+    [dictionary objectForKey:@"ficAltId"] : nil;
+    
+    captureUser.freshIdeasCardNumber =
+    [dictionary objectForKey:@"freshIdeasCardNumber"] != [NSNull null] ?
+    [dictionary objectForKey:@"freshIdeasCardNumber"] : nil;
+    
     captureUser.gender =
-        [dictionary objectForKey:@"gender"] != [NSNull null] ? 
-        [dictionary objectForKey:@"gender"] : nil;
-
+    [dictionary objectForKey:@"gender"] != [NSNull null] ?
+    [dictionary objectForKey:@"gender"] : nil;
+    
     captureUser.givenName =
-        [dictionary objectForKey:@"givenName"] != [NSNull null] ? 
-        [dictionary objectForKey:@"givenName"] : nil;
-
+    [dictionary objectForKey:@"givenName"] != [NSNull null] ?
+    [dictionary objectForKey:@"givenName"] : nil;
+    
     captureUser.lastLogin =
-        [dictionary objectForKey:@"lastLogin"] != [NSNull null] ? 
-        [JRDateTime dateFromISO8601DateTimeString:[dictionary objectForKey:@"lastLogin"]] : nil;
-
+    [dictionary objectForKey:@"lastLogin"] != [NSNull null] ?
+    [JRDateTime dateFromISO8601DateTimeString:[dictionary objectForKey:@"lastLogin"]] : nil;
+    
     captureUser.middleName =
-        [dictionary objectForKey:@"middleName"] != [NSNull null] ? 
-        [dictionary objectForKey:@"middleName"] : nil;
-
+    [dictionary objectForKey:@"middleName"] != [NSNull null] ?
+    [dictionary objectForKey:@"middleName"] : nil;
+    
+    captureUser.optInEmail =
+    [dictionary objectForKey:@"optInEmail"] != [NSNull null] ?
+    [NSNumber numberWithBool:[(NSNumber*)[dictionary objectForKey:@"optInEmail"] boolValue]] : nil;
+    
+    captureUser.optInEmailDate =
+    [dictionary objectForKey:@"optInEmailDate"] != [NSNull null] ?
+    [JRDateTime dateFromISO8601DateTimeString:[dictionary objectForKey:@"optInEmailDate"]] : nil;
+    
+    captureUser.optInSMS =
+    [dictionary objectForKey:@"optInSMS"] != [NSNull null] ?
+    [NSNumber numberWithBool:[(NSNumber*)[dictionary objectForKey:@"optInSMS"] boolValue]] : nil;
+    
+    captureUser.optInSMSDate =
+    [dictionary objectForKey:@"optInSMSDate"] != [NSNull null] ?
+    [JRDateTime dateFromISO8601DateTimeString:[dictionary objectForKey:@"optInSMSDate"]] : nil;
+    
     captureUser.password =
-        [dictionary objectForKey:@"password"] != [NSNull null] ? 
-        [dictionary objectForKey:@"password"] : nil;
-
+    [dictionary objectForKey:@"password"] != [NSNull null] ?
+    [dictionary objectForKey:@"password"] : nil;
+    
     captureUser.photos =
-        [dictionary objectForKey:@"photos"] != [NSNull null] ? 
-        [(NSArray*)[dictionary objectForKey:@"photos"] arrayOfPhotosElementsFromPhotosDictionariesWithPath:captureUser.captureObjectPath fromDecoder:fromDecoder] : nil;
-
+    [dictionary objectForKey:@"photos"] != [NSNull null] ?
+    [(NSArray*)[dictionary objectForKey:@"photos"] arrayOfPhotosElementsFromPhotosDictionariesWithPath:captureUser.captureObjectPath fromDecoder:fromDecoder] : nil;
+    
     captureUser.primaryAddress =
-        [dictionary objectForKey:@"primaryAddress"] != [NSNull null] ? 
-        [JRPrimaryAddress primaryAddressObjectFromDictionary:[dictionary objectForKey:@"primaryAddress"] withPath:captureUser.captureObjectPath fromDecoder:fromDecoder] : nil;
-
+    [dictionary objectForKey:@"primaryAddress"] != [NSNull null] ?
+    [JRPrimaryAddress primaryAddressObjectFromDictionary:[dictionary objectForKey:@"primaryAddress"] withPath:captureUser.captureObjectPath fromDecoder:fromDecoder] : nil;
+    
     captureUser.profiles =
-        [dictionary objectForKey:@"profiles"] != [NSNull null] ? 
-        [(NSArray*)[dictionary objectForKey:@"profiles"] arrayOfProfilesElementsFromProfilesDictionariesWithPath:captureUser.captureObjectPath fromDecoder:fromDecoder] : nil;
-
+    [dictionary objectForKey:@"profiles"] != [NSNull null] ?
+    [(NSArray*)[dictionary objectForKey:@"profiles"] arrayOfProfilesElementsFromProfilesDictionariesWithPath:captureUser.captureObjectPath fromDecoder:fromDecoder] : nil;
+    
     captureUser.statuses =
-        [dictionary objectForKey:@"statuses"] != [NSNull null] ? 
-        [(NSArray*)[dictionary objectForKey:@"statuses"] arrayOfStatusesElementsFromStatusesDictionariesWithPath:captureUser.captureObjectPath fromDecoder:fromDecoder] : nil;
-
-    captureUser.captureUserId =
-        [dictionary objectForKey:@"id"] != [NSNull null] ? 
-        [NSNumber numberWithInteger:[(NSNumber*)[dictionary objectForKey:@"id"] integerValue]] : nil;
-
-    captureUser.lastUpdated =
-        [dictionary objectForKey:@"lastUpdated"] != [NSNull null] ? 
-        [JRDateTime dateFromISO8601DateTimeString:[dictionary objectForKey:@"lastUpdated"]] : nil;
-
-    captureUser.uuid =
-        [dictionary objectForKey:@"uuid"] != [NSNull null] ? 
-        [dictionary objectForKey:@"uuid"] : nil;
-
+    [dictionary objectForKey:@"statuses"] != [NSNull null] ?
+    [(NSArray*)[dictionary objectForKey:@"statuses"] arrayOfStatusesElementsFromStatusesDictionariesWithPath:captureUser.captureObjectPath fromDecoder:fromDecoder] : nil;
+    
+    captureUser.termsAndConditions =
+    [dictionary objectForKey:@"termsAndConditions"] != [NSNull null] ?
+    [NSNumber numberWithBool:[(NSNumber*)[dictionary objectForKey:@"termsAndConditions"] boolValue]] : nil;
+    
+    captureUser.termsAndConditionsDate =
+    [dictionary objectForKey:@"termsAndConditionsDate"] != [NSNull null] ?
+    [JRDateTime dateFromISO8601DateTimeString:[dictionary objectForKey:@"termsAndConditionsDate"]] : nil;
+    
     captureUser.created =
-        [dictionary objectForKey:@"created"] != [NSNull null] ? 
-        [JRDateTime dateFromISO8601DateTimeString:[dictionary objectForKey:@"created"]] : nil;
-
+    [dictionary objectForKey:@"created"] != [NSNull null] ?
+    [JRDateTime dateFromISO8601DateTimeString:[dictionary objectForKey:@"created"]] : nil;
+    
+    captureUser.lastUpdated =
+    [dictionary objectForKey:@"lastUpdated"] != [NSNull null] ?
+    [JRDateTime dateFromISO8601DateTimeString:[dictionary objectForKey:@"lastUpdated"]] : nil;
+    
+    captureUser.captureUserId =
+    [dictionary objectForKey:@"id"] != [NSNull null] ?
+    [NSNumber numberWithInteger:[(NSNumber*)[dictionary objectForKey:@"id"] integerValue]] : nil;
+    
+    captureUser.uuid =
+    [dictionary objectForKey:@"uuid"] != [NSNull null] ?
+    [dictionary objectForKey:@"uuid"] : nil;
+    
     if (fromDecoder)
         [captureUser.dirtyPropertySet setSet:dirtyPropertySetCopy];
     else
         [captureUser.dirtyPropertySet removeAllObjects];
-
+    
     return captureUser;
 }
 
@@ -819,105 +1101,152 @@
 
 - (void)replaceFromDictionary:(NSDictionary*)dictionary withPath:(NSString *)capturePath
 {
-    DLog(@"%@ %@", capturePath, [dictionary description]);
-
-    NSSet *dirtyPropertySetCopy = [self.dirtyPropertySet copy];
-
+    NSSet *dirtyPropertySetCopy = [NSSet setWithArray:[dictionary objectForKey:@"dirtyPropertiesSet"]];
+    
+    self.captureObjectPath = @"";
     self.canBeUpdatedOnCapture = YES;
-
+    
     self.aboutMe =
-        [dictionary objectForKey:@"aboutMe"] != [NSNull null] ? 
-        [dictionary objectForKey:@"aboutMe"] : nil;
-
+    [dictionary objectForKey:@"aboutMe"] != [NSNull null] ?
+    [dictionary objectForKey:@"aboutMe"] : nil;
+    
     self.birthday =
-        [dictionary objectForKey:@"birthday"] != [NSNull null] ? 
-        [JRDate dateFromISO8601DateString:[dictionary objectForKey:@"birthday"]] : nil;
-
+    [dictionary objectForKey:@"birthday"] != [NSNull null] ?
+    [JRDate dateFromISO8601DateString:[dictionary objectForKey:@"birthday"]] : nil;
+    
+    self.ccomGuid =
+    [dictionary objectForKey:@"ccomGuid"] != [NSNull null] ?
+    [dictionary objectForKey:@"ccomGuid"] : nil;
+    
     self.currentLocation =
-        [dictionary objectForKey:@"currentLocation"] != [NSNull null] ? 
-        [dictionary objectForKey:@"currentLocation"] : nil;
-
+    [dictionary objectForKey:@"currentLocation"] != [NSNull null] ?
+    [dictionary objectForKey:@"currentLocation"] : nil;
+    
+    self.deactivateAccount =
+    [dictionary objectForKey:@"deactivateAccount"] != [NSNull null] ?
+    [JRDateTime dateFromISO8601DateTimeString:[dictionary objectForKey:@"deactivateAccount"]] : nil;
+    
+    self.dietaryPreferences =
+    [dictionary objectForKey:@"dietaryPreferences"] != [NSNull null] ?
+    [dictionary objectForKey:@"dietaryPreferences"] : nil;
+    
     self.display =
-        [dictionary objectForKey:@"display"] != [NSNull null] ? 
-        [dictionary objectForKey:@"display"] : nil;
-
+    [dictionary objectForKey:@"display"] != [NSNull null] ?
+    [dictionary objectForKey:@"display"] : nil;
+    
     self.displayName =
-        [dictionary objectForKey:@"displayName"] != [NSNull null] ? 
-        [dictionary objectForKey:@"displayName"] : nil;
-
+    [dictionary objectForKey:@"displayName"] != [NSNull null] ?
+    [dictionary objectForKey:@"displayName"] : nil;
+    
     self.email =
-        [dictionary objectForKey:@"email"] != [NSNull null] ? 
-        [dictionary objectForKey:@"email"] : nil;
-
+    [dictionary objectForKey:@"email"] != [NSNull null] ?
+    [dictionary objectForKey:@"email"] : nil;
+    
     self.emailVerified =
-        [dictionary objectForKey:@"emailVerified"] != [NSNull null] ? 
-        [JRDateTime dateFromISO8601DateTimeString:[dictionary objectForKey:@"emailVerified"]] : nil;
-
+    [dictionary objectForKey:@"emailVerified"] != [NSNull null] ?
+    [JRDateTime dateFromISO8601DateTimeString:[dictionary objectForKey:@"emailVerified"]] : nil;
+    
     self.familyName =
-        [dictionary objectForKey:@"familyName"] != [NSNull null] ? 
-        [dictionary objectForKey:@"familyName"] : nil;
-
+    [dictionary objectForKey:@"familyName"] != [NSNull null] ?
+    [dictionary objectForKey:@"familyName"] : nil;
+    
+    self.favoriteDepartment =
+    [dictionary objectForKey:@"favoriteDepartment"] != [NSNull null] ?
+    [dictionary objectForKey:@"favoriteDepartment"] : nil;
+    
+    self.favoriteStore =
+    [dictionary objectForKey:@"favoriteStore"] != [NSNull null] ?
+    [dictionary objectForKey:@"favoriteStore"] : nil;
+    
+    self.ficAltId =
+    [dictionary objectForKey:@"ficAltId"] != [NSNull null] ?
+    [dictionary objectForKey:@"ficAltId"] : nil;
+    
+    self.freshIdeasCardNumber =
+    [dictionary objectForKey:@"freshIdeasCardNumber"] != [NSNull null] ?
+    [dictionary objectForKey:@"freshIdeasCardNumber"] : nil;
+    
     self.gender =
-        [dictionary objectForKey:@"gender"] != [NSNull null] ? 
-        [dictionary objectForKey:@"gender"] : nil;
-
+    [dictionary objectForKey:@"gender"] != [NSNull null] ?
+    [dictionary objectForKey:@"gender"] : nil;
+    
     self.givenName =
-        [dictionary objectForKey:@"givenName"] != [NSNull null] ? 
-        [dictionary objectForKey:@"givenName"] : nil;
-
+    [dictionary objectForKey:@"givenName"] != [NSNull null] ?
+    [dictionary objectForKey:@"givenName"] : nil;
+    
     self.lastLogin =
-        [dictionary objectForKey:@"lastLogin"] != [NSNull null] ? 
-        [JRDateTime dateFromISO8601DateTimeString:[dictionary objectForKey:@"lastLogin"]] : nil;
-
+    [dictionary objectForKey:@"lastLogin"] != [NSNull null] ?
+    [JRDateTime dateFromISO8601DateTimeString:[dictionary objectForKey:@"lastLogin"]] : nil;
+    
     self.middleName =
-        [dictionary objectForKey:@"middleName"] != [NSNull null] ? 
-        [dictionary objectForKey:@"middleName"] : nil;
-
+    [dictionary objectForKey:@"middleName"] != [NSNull null] ?
+    [dictionary objectForKey:@"middleName"] : nil;
+    
+    self.optInEmail =
+    [dictionary objectForKey:@"optInEmail"] != [NSNull null] ?
+    [NSNumber numberWithBool:[(NSNumber*)[dictionary objectForKey:@"optInEmail"] boolValue]] : nil;
+    
+    self.optInEmailDate =
+    [dictionary objectForKey:@"optInEmailDate"] != [NSNull null] ?
+    [JRDateTime dateFromISO8601DateTimeString:[dictionary objectForKey:@"optInEmailDate"]] : nil;
+    
+    self.optInSMS =
+    [dictionary objectForKey:@"optInSMS"] != [NSNull null] ?
+    [NSNumber numberWithBool:[(NSNumber*)[dictionary objectForKey:@"optInSMS"] boolValue]] : nil;
+    
+    self.optInSMSDate =
+    [dictionary objectForKey:@"optInSMSDate"] != [NSNull null] ?
+    [JRDateTime dateFromISO8601DateTimeString:[dictionary objectForKey:@"optInSMSDate"]] : nil;
+    
     self.password =
-        [dictionary objectForKey:@"password"] != [NSNull null] ? 
-        [dictionary objectForKey:@"password"] : nil;
-
+    [dictionary objectForKey:@"password"] != [NSNull null] ?
+    [dictionary objectForKey:@"password"] : nil;
+    
     self.photos =
-        [dictionary objectForKey:@"photos"] != [NSNull null] ? 
-        [(NSArray*)[dictionary objectForKey:@"photos"] arrayOfPhotosElementsFromPhotosDictionariesWithPath:self.captureObjectPath fromDecoder:NO] : nil;
-
-    if (![dictionary objectForKey:@"primaryAddress"] || [dictionary objectForKey:@"primaryAddress"] == [NSNull null])
-        self.primaryAddress = nil;
-    else if (!self.primaryAddress)
-        self.primaryAddress = [JRPrimaryAddress primaryAddressObjectFromDictionary:[dictionary objectForKey:@"primaryAddress"] withPath:self.captureObjectPath fromDecoder:NO];
-    else
-        [self.primaryAddress replaceFromDictionary:[dictionary objectForKey:@"primaryAddress"] withPath:self.captureObjectPath];
-
+    [dictionary objectForKey:@"photos"] != [NSNull null] ?
+    [(NSArray*)[dictionary objectForKey:@"photos"] arrayOfPhotosElementsFromPhotosDictionariesWithPath:self.captureObjectPath fromDecoder:YES] : nil;
+    
+    self.primaryAddress =
+    [dictionary objectForKey:@"primaryAddress"] != [NSNull null] ?
+    [JRPrimaryAddress primaryAddressObjectFromDictionary:[dictionary objectForKey:@"primaryAddress"] withPath:self.captureObjectPath fromDecoder:YES] : nil;
+    
     self.profiles =
-        [dictionary objectForKey:@"profiles"] != [NSNull null] ? 
-        [(NSArray*)[dictionary objectForKey:@"profiles"] arrayOfProfilesElementsFromProfilesDictionariesWithPath:self.captureObjectPath fromDecoder:NO] : nil;
-
+    [dictionary objectForKey:@"profiles"] != [NSNull null] ?
+    [(NSArray*)[dictionary objectForKey:@"profiles"] arrayOfProfilesElementsFromProfilesDictionariesWithPath:self.captureObjectPath fromDecoder:YES] : nil;
+    
     self.statuses =
-        [dictionary objectForKey:@"statuses"] != [NSNull null] ? 
-        [(NSArray*)[dictionary objectForKey:@"statuses"] arrayOfStatusesElementsFromStatusesDictionariesWithPath:self.captureObjectPath fromDecoder:NO] : nil;
-
-    self.captureUserId =
-        [dictionary objectForKey:@"id"] != [NSNull null] ? 
-        [NSNumber numberWithInteger:[(NSNumber*)[dictionary objectForKey:@"id"] integerValue]] : nil;
-
-    self.lastUpdated =
-        [dictionary objectForKey:@"lastUpdated"] != [NSNull null] ? 
-        [JRDateTime dateFromISO8601DateTimeString:[dictionary objectForKey:@"lastUpdated"]] : nil;
-
-    self.uuid =
-        [dictionary objectForKey:@"uuid"] != [NSNull null] ? 
-        [dictionary objectForKey:@"uuid"] : nil;
-
+    [dictionary objectForKey:@"statuses"] != [NSNull null] ?
+    [(NSArray*)[dictionary objectForKey:@"statuses"] arrayOfStatusesElementsFromStatusesDictionariesWithPath:self.captureObjectPath fromDecoder:YES] : nil;
+    
+    self.termsAndConditions =
+    [dictionary objectForKey:@"termsAndConditions"] != [NSNull null] ?
+    [NSNumber numberWithBool:[(NSNumber*)[dictionary objectForKey:@"termsAndConditions"] boolValue]] : nil;
+    
+    self.termsAndConditionsDate =
+    [dictionary objectForKey:@"termsAndConditionsDate"] != [NSNull null] ?
+    [JRDateTime dateFromISO8601DateTimeString:[dictionary objectForKey:@"termsAndConditionsDate"]] : nil;
+    
     self.created =
-        [dictionary objectForKey:@"created"] != [NSNull null] ? 
-        [JRDateTime dateFromISO8601DateTimeString:[dictionary objectForKey:@"created"]] : nil;
-
-    [self.dirtyPropertySet setSet:dirtyPropertySetCopy];
-}
+    [dictionary objectForKey:@"created"] != [NSNull null] ?
+    [JRDateTime dateFromISO8601DateTimeString:[dictionary objectForKey:@"created"]] : nil;
+    
+    self.lastUpdated =
+    [dictionary objectForKey:@"lastUpdated"] != [NSNull null] ?
+    [JRDateTime dateFromISO8601DateTimeString:[dictionary objectForKey:@"lastUpdated"]] : nil;
+    
+    self.captureUserId =
+    [dictionary objectForKey:@"id"] != [NSNull null] ?
+    [NSNumber numberWithInteger:[(NSNumber*)[dictionary objectForKey:@"id"] integerValue]] : nil;
+    
+    self.uuid =
+    [dictionary objectForKey:@"uuid"] != [NSNull null] ?
+    [dictionary objectForKey:@"uuid"] : nil;
+    
+    [self.dirtyPropertySet setSet:dirtyPropertySetCopy];}
 
 - (NSSet *)updatablePropertySet
 {
-    return [NSSet setWithObjects:@"aboutMe", @"birthday", @"currentLocation", @"display", @"displayName", @"email", @"emailVerified", @"familyName", @"gender", @"givenName", @"lastLogin", @"middleName", @"password", @"primaryAddress", @"captureUserId", @"lastUpdated", @"uuid", @"created", nil];
+    return [NSSet setWithObjects:@"aboutMe", @"birthday", @"ccomGuid", @"currentLocation", @"deactivateAccount", @"dietaryPreferences", @"display", @"displayName", @"email", @"emailVerified", @"familyName", @"favoriteDepartment", @"favoriteStore", @"ficAltId", @"freshIdeasCardNumber", @"gender", @"givenName", @"lastLogin", @"middleName", @"optInEmail", @"optInEmailDate", @"optInSMS", @"optInSMSDate", @"password", @"primaryAddress", @"termsAndConditions", @"termsAndConditionsDate", @"created", @"lastUpdated", @"captureUserId", @"uuid", nil];
 }
 
 - (void)setAllPropertiesToDirty
@@ -954,56 +1283,95 @@
 - (NSDictionary *)toUpdateDictionary
 {
     NSMutableDictionary *dictionary =
-         [NSMutableDictionary dictionaryWithCapacity:10];
-
+    [NSMutableDictionary dictionaryWithCapacity:10];
+    
     if ([self.dirtyPropertySet containsObject:@"aboutMe"])
         [dictionary setObject:(self.aboutMe ? self.aboutMe : [NSNull null]) forKey:@"aboutMe"];
-
+    
     if ([self.dirtyPropertySet containsObject:@"birthday"])
         [dictionary setObject:(self.birthday ? [self.birthday stringFromISO8601Date] : [NSNull null]) forKey:@"birthday"];
-
+    
+    if ([self.dirtyPropertySet containsObject:@"ccomGuid"])
+        [dictionary setObject:(self.ccomGuid ? self.ccomGuid : [NSNull null]) forKey:@"ccomGuid"];
+    
     if ([self.dirtyPropertySet containsObject:@"currentLocation"])
         [dictionary setObject:(self.currentLocation ? self.currentLocation : [NSNull null]) forKey:@"currentLocation"];
-
+    
+    if ([self.dirtyPropertySet containsObject:@"deactivateAccount"])
+        [dictionary setObject:(self.deactivateAccount ? [self.deactivateAccount stringFromISO8601DateTime] : [NSNull null]) forKey:@"deactivateAccount"];
+    
+    if ([self.dirtyPropertySet containsObject:@"dietaryPreferences"])
+        [dictionary setObject:(self.dietaryPreferences ? self.dietaryPreferences : [NSNull null]) forKey:@"dietaryPreferences"];
+    
     if ([self.dirtyPropertySet containsObject:@"display"])
         [dictionary setObject:(self.display ? self.display : [NSNull null]) forKey:@"display"];
-
+    
     if ([self.dirtyPropertySet containsObject:@"displayName"])
         [dictionary setObject:(self.displayName ? self.displayName : [NSNull null]) forKey:@"displayName"];
-
+    
     if ([self.dirtyPropertySet containsObject:@"email"])
         [dictionary setObject:(self.email ? self.email : [NSNull null]) forKey:@"email"];
-
+    
     if ([self.dirtyPropertySet containsObject:@"emailVerified"])
         [dictionary setObject:(self.emailVerified ? [self.emailVerified stringFromISO8601DateTime] : [NSNull null]) forKey:@"emailVerified"];
-
+    
     if ([self.dirtyPropertySet containsObject:@"familyName"])
         [dictionary setObject:(self.familyName ? self.familyName : [NSNull null]) forKey:@"familyName"];
-
+    
+    if ([self.dirtyPropertySet containsObject:@"favoriteDepartment"])
+        [dictionary setObject:(self.favoriteDepartment ? self.favoriteDepartment : [NSNull null]) forKey:@"favoriteDepartment"];
+    
+    if ([self.dirtyPropertySet containsObject:@"favoriteStore"])
+        [dictionary setObject:(self.favoriteStore ? self.favoriteStore : [NSNull null]) forKey:@"favoriteStore"];
+    
+    if ([self.dirtyPropertySet containsObject:@"ficAltId"])
+        [dictionary setObject:(self.ficAltId ? self.ficAltId : [NSNull null]) forKey:@"ficAltId"];
+    
+    if ([self.dirtyPropertySet containsObject:@"freshIdeasCardNumber"])
+        [dictionary setObject:(self.freshIdeasCardNumber ? self.freshIdeasCardNumber : [NSNull null]) forKey:@"freshIdeasCardNumber"];
+    
     if ([self.dirtyPropertySet containsObject:@"gender"])
         [dictionary setObject:(self.gender ? self.gender : [NSNull null]) forKey:@"gender"];
-
+    
     if ([self.dirtyPropertySet containsObject:@"givenName"])
         [dictionary setObject:(self.givenName ? self.givenName : [NSNull null]) forKey:@"givenName"];
-
+    
     if ([self.dirtyPropertySet containsObject:@"lastLogin"])
         [dictionary setObject:(self.lastLogin ? [self.lastLogin stringFromISO8601DateTime] : [NSNull null]) forKey:@"lastLogin"];
-
+    
     if ([self.dirtyPropertySet containsObject:@"middleName"])
         [dictionary setObject:(self.middleName ? self.middleName : [NSNull null]) forKey:@"middleName"];
-
+    
+    if ([self.dirtyPropertySet containsObject:@"optInEmail"])
+        [dictionary setObject:(self.optInEmail ? [NSNumber numberWithBool:[self.optInEmail boolValue]] : [NSNull null]) forKey:@"optInEmail"];
+    
+    if ([self.dirtyPropertySet containsObject:@"optInEmailDate"])
+        [dictionary setObject:(self.optInEmailDate ? [self.optInEmailDate stringFromISO8601DateTime] : [NSNull null]) forKey:@"optInEmailDate"];
+    
+    if ([self.dirtyPropertySet containsObject:@"optInSMS"])
+        [dictionary setObject:(self.optInSMS ? [NSNumber numberWithBool:[self.optInSMS boolValue]] : [NSNull null]) forKey:@"optInSMS"];
+    
+    if ([self.dirtyPropertySet containsObject:@"optInSMSDate"])
+        [dictionary setObject:(self.optInSMSDate ? [self.optInSMSDate stringFromISO8601DateTime] : [NSNull null]) forKey:@"optInSMSDate"];
+    
     if ([self.dirtyPropertySet containsObject:@"password"])
         [dictionary setObject:(self.password ? self.password : [NSNull null]) forKey:@"password"];
-
+    
     if ([self.dirtyPropertySet containsObject:@"primaryAddress"])
         [dictionary setObject:(self.primaryAddress ?
-                              [self.primaryAddress toUpdateDictionary] :
-                              [[JRPrimaryAddress primaryAddress] toUpdateDictionary]) /* Use the default constructor to create an empty object */
+                               [self.primaryAddress toUpdateDictionary] :
+                               [[JRPrimaryAddress primaryAddress] toUpdateDictionary]) /* Use the default constructor to create an empty object */
                        forKey:@"primaryAddress"];
     else if ([self.primaryAddress needsUpdate])
         [dictionary setObject:[self.primaryAddress toUpdateDictionary]
                        forKey:@"primaryAddress"];
-
+    
+    if ([self.dirtyPropertySet containsObject:@"termsAndConditions"])
+        [dictionary setObject:(self.termsAndConditions ? [NSNumber numberWithBool:[self.termsAndConditions boolValue]] : [NSNull null]) forKey:@"termsAndConditions"];
+    
+    if ([self.dirtyPropertySet containsObject:@"termsAndConditionsDate"])
+        [dictionary setObject:(self.termsAndConditionsDate ? [self.termsAndConditionsDate stringFromISO8601DateTime] : [NSNull null]) forKey:@"termsAndConditionsDate"];
+    
     [self.dirtyPropertySet removeAllObjects];
     return [NSDictionary dictionaryWithDictionary:dictionary];
 }
@@ -1016,42 +1384,55 @@
 - (NSDictionary *)toReplaceDictionary
 {
     NSMutableDictionary *dictionary =
-         [NSMutableDictionary dictionaryWithCapacity:10];
-
+    [NSMutableDictionary dictionaryWithCapacity:10];
+    
     [dictionary setObject:(self.aboutMe ? self.aboutMe : [NSNull null]) forKey:@"aboutMe"];
     [dictionary setObject:(self.birthday ? [self.birthday stringFromISO8601Date] : [NSNull null]) forKey:@"birthday"];
+    [dictionary setObject:(self.ccomGuid ? self.ccomGuid : [NSNull null]) forKey:@"ccomGuid"];
     [dictionary setObject:(self.currentLocation ? self.currentLocation : [NSNull null]) forKey:@"currentLocation"];
+    [dictionary setObject:(self.deactivateAccount ? [self.deactivateAccount stringFromISO8601DateTime] : [NSNull null]) forKey:@"deactivateAccount"];
+    [dictionary setObject:(self.dietaryPreferences ? self.dietaryPreferences : [NSNull null]) forKey:@"dietaryPreferences"];
     [dictionary setObject:(self.display ? self.display : [NSNull null]) forKey:@"display"];
     [dictionary setObject:(self.displayName ? self.displayName : [NSNull null]) forKey:@"displayName"];
     [dictionary setObject:(self.email ? self.email : [NSNull null]) forKey:@"email"];
     [dictionary setObject:(self.emailVerified ? [self.emailVerified stringFromISO8601DateTime] : [NSNull null]) forKey:@"emailVerified"];
     [dictionary setObject:(self.familyName ? self.familyName : [NSNull null]) forKey:@"familyName"];
+    [dictionary setObject:(self.favoriteDepartment ? self.favoriteDepartment : [NSNull null]) forKey:@"favoriteDepartment"];
+    [dictionary setObject:(self.favoriteStore ? self.favoriteStore : [NSNull null]) forKey:@"favoriteStore"];
+    [dictionary setObject:(self.ficAltId ? self.ficAltId : [NSNull null]) forKey:@"ficAltId"];
+    [dictionary setObject:(self.freshIdeasCardNumber ? self.freshIdeasCardNumber : [NSNull null]) forKey:@"freshIdeasCardNumber"];
     [dictionary setObject:(self.gender ? self.gender : [NSNull null]) forKey:@"gender"];
     [dictionary setObject:(self.givenName ? self.givenName : [NSNull null]) forKey:@"givenName"];
     [dictionary setObject:(self.lastLogin ? [self.lastLogin stringFromISO8601DateTime] : [NSNull null]) forKey:@"lastLogin"];
     [dictionary setObject:(self.middleName ? self.middleName : [NSNull null]) forKey:@"middleName"];
+    [dictionary setObject:(self.optInEmail ? [NSNumber numberWithBool:[self.optInEmail boolValue]] : [NSNull null]) forKey:@"optInEmail"];
+    [dictionary setObject:(self.optInEmailDate ? [self.optInEmailDate stringFromISO8601DateTime] : [NSNull null]) forKey:@"optInEmailDate"];
+    [dictionary setObject:(self.optInSMS ? [NSNumber numberWithBool:[self.optInSMS boolValue]] : [NSNull null]) forKey:@"optInSMS"];
+    [dictionary setObject:(self.optInSMSDate ? [self.optInSMSDate stringFromISO8601DateTime] : [NSNull null]) forKey:@"optInSMSDate"];
     [dictionary setObject:(self.password ? self.password : [NSNull null]) forKey:@"password"];
-
+    
     [dictionary setObject:(self.photos ?
-                          [self.photos arrayOfPhotosReplaceDictionariesFromPhotosElements] :
-                          [NSArray array])
+                           [self.photos arrayOfPhotosReplaceDictionariesFromPhotosElements] :
+                           [NSArray array])
                    forKey:@"photos"];
-
+    
     [dictionary setObject:(self.primaryAddress ?
-                          [self.primaryAddress toReplaceDictionary] :
-                          [[JRPrimaryAddress primaryAddress] toUpdateDictionary]) /* Use the default constructor to create an empty object */
+                           [self.primaryAddress toReplaceDictionary] :
+                           [[JRPrimaryAddress primaryAddress] toUpdateDictionary]) /* Use the default constructor to create an empty object */
                    forKey:@"primaryAddress"];
-
+    
     [dictionary setObject:(self.profiles ?
-                          [self.profiles arrayOfProfilesReplaceDictionariesFromProfilesElements] :
-                          [NSArray array])
+                           [self.profiles arrayOfProfilesReplaceDictionariesFromProfilesElements] :
+                           [NSArray array])
                    forKey:@"profiles"];
-
+    
     [dictionary setObject:(self.statuses ?
-                          [self.statuses arrayOfStatusesReplaceDictionariesFromStatusesElements] :
-                          [NSArray array])
+                           [self.statuses arrayOfStatusesReplaceDictionariesFromStatusesElements] :
+                           [NSArray array])
                    forKey:@"statuses"];
-
+    [dictionary setObject:(self.termsAndConditions ? [NSNumber numberWithBool:[self.termsAndConditions boolValue]] : [NSNull null]) forKey:@"termsAndConditions"];
+    [dictionary setObject:(self.termsAndConditionsDate ? [self.termsAndConditionsDate stringFromISO8601DateTime] : [NSNull null]) forKey:@"termsAndConditionsDate"];
+    
     [self.dirtyPropertySet removeAllObjects];
     return [NSDictionary dictionaryWithDictionary:dictionary];
 }
@@ -1090,105 +1471,170 @@
     if (!self.aboutMe && !otherCaptureUser.aboutMe) /* Keep going... */;
     else if ((self.aboutMe == nil) ^ (otherCaptureUser.aboutMe == nil)) return NO; // xor
     else if (![self.aboutMe isEqualToString:otherCaptureUser.aboutMe]) return NO;
-
+    
     if (!self.birthday && !otherCaptureUser.birthday) /* Keep going... */;
     else if ((self.birthday == nil) ^ (otherCaptureUser.birthday == nil)) return NO; // xor
     else if (![self.birthday isEqualToDate:otherCaptureUser.birthday]) return NO;
-
+    
+    if (!self.ccomGuid && !otherCaptureUser.ccomGuid) /* Keep going... */;
+    else if ((self.ccomGuid == nil) ^ (otherCaptureUser.ccomGuid == nil)) return NO; // xor
+    else if (![self.ccomGuid isEqualToString:otherCaptureUser.ccomGuid]) return NO;
+    
     if (!self.currentLocation && !otherCaptureUser.currentLocation) /* Keep going... */;
     else if ((self.currentLocation == nil) ^ (otherCaptureUser.currentLocation == nil)) return NO; // xor
     else if (![self.currentLocation isEqualToString:otherCaptureUser.currentLocation]) return NO;
-
+    
+    if (!self.deactivateAccount && !otherCaptureUser.deactivateAccount) /* Keep going... */;
+    else if ((self.deactivateAccount == nil) ^ (otherCaptureUser.deactivateAccount == nil)) return NO; // xor
+    else if (![self.deactivateAccount isEqualToDate:otherCaptureUser.deactivateAccount]) return NO;
+    
+    if (!self.dietaryPreferences && !otherCaptureUser.dietaryPreferences) /* Keep going... */;
+    else if ((self.dietaryPreferences == nil) ^ (otherCaptureUser.dietaryPreferences == nil)) return NO; // xor
+    else if (![self.dietaryPreferences isEqualToString:otherCaptureUser.dietaryPreferences]) return NO;
+    
     if (!self.display && !otherCaptureUser.display) /* Keep going... */;
     else if ((self.display == nil) ^ (otherCaptureUser.display == nil)) return NO; // xor
     else if (![self.display isEqual:otherCaptureUser.display]) return NO;
-
+    
     if (!self.displayName && !otherCaptureUser.displayName) /* Keep going... */;
     else if ((self.displayName == nil) ^ (otherCaptureUser.displayName == nil)) return NO; // xor
     else if (![self.displayName isEqualToString:otherCaptureUser.displayName]) return NO;
-
+    
     if (!self.email && !otherCaptureUser.email) /* Keep going... */;
     else if ((self.email == nil) ^ (otherCaptureUser.email == nil)) return NO; // xor
     else if (![self.email isEqualToString:otherCaptureUser.email]) return NO;
-
+    
     if (!self.emailVerified && !otherCaptureUser.emailVerified) /* Keep going... */;
     else if ((self.emailVerified == nil) ^ (otherCaptureUser.emailVerified == nil)) return NO; // xor
     else if (![self.emailVerified isEqualToDate:otherCaptureUser.emailVerified]) return NO;
-
+    
     if (!self.familyName && !otherCaptureUser.familyName) /* Keep going... */;
     else if ((self.familyName == nil) ^ (otherCaptureUser.familyName == nil)) return NO; // xor
     else if (![self.familyName isEqualToString:otherCaptureUser.familyName]) return NO;
-
+    
+    if (!self.favoriteDepartment && !otherCaptureUser.favoriteDepartment) /* Keep going... */;
+    else if ((self.favoriteDepartment == nil) ^ (otherCaptureUser.favoriteDepartment == nil)) return NO; // xor
+    else if (![self.favoriteDepartment isEqualToString:otherCaptureUser.favoriteDepartment]) return NO;
+    
+    if (!self.favoriteStore && !otherCaptureUser.favoriteStore) /* Keep going... */;
+    else if ((self.favoriteStore == nil) ^ (otherCaptureUser.favoriteStore == nil)) return NO; // xor
+    else if (![self.favoriteStore isEqualToString:otherCaptureUser.favoriteStore]) return NO;
+    
+    if (!self.ficAltId && !otherCaptureUser.ficAltId) /* Keep going... */;
+    else if ((self.ficAltId == nil) ^ (otherCaptureUser.ficAltId == nil)) return NO; // xor
+    else if (![self.ficAltId isEqualToString:otherCaptureUser.ficAltId]) return NO;
+    
+    if (!self.freshIdeasCardNumber && !otherCaptureUser.freshIdeasCardNumber) /* Keep going... */;
+    else if ((self.freshIdeasCardNumber == nil) ^ (otherCaptureUser.freshIdeasCardNumber == nil)) return NO; // xor
+    else if (![self.freshIdeasCardNumber isEqualToString:otherCaptureUser.freshIdeasCardNumber]) return NO;
+    
     if (!self.gender && !otherCaptureUser.gender) /* Keep going... */;
     else if ((self.gender == nil) ^ (otherCaptureUser.gender == nil)) return NO; // xor
     else if (![self.gender isEqualToString:otherCaptureUser.gender]) return NO;
-
+    
     if (!self.givenName && !otherCaptureUser.givenName) /* Keep going... */;
     else if ((self.givenName == nil) ^ (otherCaptureUser.givenName == nil)) return NO; // xor
     else if (![self.givenName isEqualToString:otherCaptureUser.givenName]) return NO;
-
+    
     if (!self.lastLogin && !otherCaptureUser.lastLogin) /* Keep going... */;
     else if ((self.lastLogin == nil) ^ (otherCaptureUser.lastLogin == nil)) return NO; // xor
     else if (![self.lastLogin isEqualToDate:otherCaptureUser.lastLogin]) return NO;
-
+    
     if (!self.middleName && !otherCaptureUser.middleName) /* Keep going... */;
     else if ((self.middleName == nil) ^ (otherCaptureUser.middleName == nil)) return NO; // xor
     else if (![self.middleName isEqualToString:otherCaptureUser.middleName]) return NO;
-
+    
+    if (!self.optInEmail && !otherCaptureUser.optInEmail) /* Keep going... */;
+    else if ((self.optInEmail == nil) ^ (otherCaptureUser.optInEmail == nil)) return NO; // xor
+    else if (![self.optInEmail isEqualToNumber:otherCaptureUser.optInEmail]) return NO;
+    
+    if (!self.optInEmailDate && !otherCaptureUser.optInEmailDate) /* Keep going... */;
+    else if ((self.optInEmailDate == nil) ^ (otherCaptureUser.optInEmailDate == nil)) return NO; // xor
+    else if (![self.optInEmailDate isEqualToDate:otherCaptureUser.optInEmailDate]) return NO;
+    
+    if (!self.optInSMS && !otherCaptureUser.optInSMS) /* Keep going... */;
+    else if ((self.optInSMS == nil) ^ (otherCaptureUser.optInSMS == nil)) return NO; // xor
+    else if (![self.optInSMS isEqualToNumber:otherCaptureUser.optInSMS]) return NO;
+    
+    if (!self.optInSMSDate && !otherCaptureUser.optInSMSDate) /* Keep going... */;
+    else if ((self.optInSMSDate == nil) ^ (otherCaptureUser.optInSMSDate == nil)) return NO; // xor
+    else if (![self.optInSMSDate isEqualToDate:otherCaptureUser.optInSMSDate]) return NO;
+    
     if (!self.password && !otherCaptureUser.password) /* Keep going... */;
     else if ((self.password == nil) ^ (otherCaptureUser.password == nil)) return NO; // xor
     else if (![self.password isEqual:otherCaptureUser.password]) return NO;
-
+    
     if (!self.photos && !otherCaptureUser.photos) /* Keep going... */;
     else if (!self.photos && ![otherCaptureUser.photos count]) /* Keep going... */;
     else if (!otherCaptureUser.photos && ![self.photos count]) /* Keep going... */;
     else if (![self.photos isEqualToPhotosArray:otherCaptureUser.photos]) return NO;
-
+    
     if (!self.primaryAddress && !otherCaptureUser.primaryAddress) /* Keep going... */;
     else if (!self.primaryAddress && [otherCaptureUser.primaryAddress isEqualToPrimaryAddress:[JRPrimaryAddress primaryAddress]]) /* Keep going... */;
     else if (!otherCaptureUser.primaryAddress && [self.primaryAddress isEqualToPrimaryAddress:[JRPrimaryAddress primaryAddress]]) /* Keep going... */;
     else if (![self.primaryAddress isEqualToPrimaryAddress:otherCaptureUser.primaryAddress]) return NO;
-
+    
     if (!self.profiles && !otherCaptureUser.profiles) /* Keep going... */;
     else if (!self.profiles && ![otherCaptureUser.profiles count]) /* Keep going... */;
     else if (!otherCaptureUser.profiles && ![self.profiles count]) /* Keep going... */;
     else if (![self.profiles isEqualToProfilesArray:otherCaptureUser.profiles]) return NO;
-
+    
     if (!self.statuses && !otherCaptureUser.statuses) /* Keep going... */;
     else if (!self.statuses && ![otherCaptureUser.statuses count]) /* Keep going... */;
     else if (!otherCaptureUser.statuses && ![self.statuses count]) /* Keep going... */;
     else if (![self.statuses isEqualToStatusesArray:otherCaptureUser.statuses]) return NO;
-
+    
+    if (!self.termsAndConditions && !otherCaptureUser.termsAndConditions) /* Keep going... */;
+    else if ((self.termsAndConditions == nil) ^ (otherCaptureUser.termsAndConditions == nil)) return NO; // xor
+    else if (![self.termsAndConditions isEqualToNumber:otherCaptureUser.termsAndConditions]) return NO;
+    
+    if (!self.termsAndConditionsDate && !otherCaptureUser.termsAndConditionsDate) /* Keep going... */;
+    else if ((self.termsAndConditionsDate == nil) ^ (otherCaptureUser.termsAndConditionsDate == nil)) return NO; // xor
+    else if (![self.termsAndConditionsDate isEqualToDate:otherCaptureUser.termsAndConditionsDate]) return NO;
+    
     return YES;
 }
 
 - (NSDictionary*)objectProperties
 {
     NSMutableDictionary *dictionary =
-        [NSMutableDictionary dictionaryWithCapacity:10];
-
+    [NSMutableDictionary dictionaryWithCapacity:10];
+    
     [dictionary setObject:@"NSString" forKey:@"aboutMe"];
     [dictionary setObject:@"JRDate" forKey:@"birthday"];
+    [dictionary setObject:@"NSString" forKey:@"ccomGuid"];
     [dictionary setObject:@"NSString" forKey:@"currentLocation"];
+    [dictionary setObject:@"JRDateTime" forKey:@"deactivateAccount"];
+    [dictionary setObject:@"NSString" forKey:@"dietaryPreferences"];
     [dictionary setObject:@"JRJsonObject" forKey:@"display"];
     [dictionary setObject:@"NSString" forKey:@"displayName"];
     [dictionary setObject:@"NSString" forKey:@"email"];
     [dictionary setObject:@"JRDateTime" forKey:@"emailVerified"];
     [dictionary setObject:@"NSString" forKey:@"familyName"];
+    [dictionary setObject:@"NSString" forKey:@"favoriteDepartment"];
+    [dictionary setObject:@"NSString" forKey:@"favoriteStore"];
+    [dictionary setObject:@"NSString" forKey:@"ficAltId"];
+    [dictionary setObject:@"NSString" forKey:@"freshIdeasCardNumber"];
     [dictionary setObject:@"NSString" forKey:@"gender"];
     [dictionary setObject:@"NSString" forKey:@"givenName"];
     [dictionary setObject:@"JRDateTime" forKey:@"lastLogin"];
     [dictionary setObject:@"NSString" forKey:@"middleName"];
+    [dictionary setObject:@"JRBoolean" forKey:@"optInEmail"];
+    [dictionary setObject:@"JRDateTime" forKey:@"optInEmailDate"];
+    [dictionary setObject:@"JRBoolean" forKey:@"optInSMS"];
+    [dictionary setObject:@"JRDateTime" forKey:@"optInSMSDate"];
     [dictionary setObject:@"JRPassword" forKey:@"password"];
     [dictionary setObject:@"NSArray" forKey:@"photos"];
     [dictionary setObject:@"JRPrimaryAddress" forKey:@"primaryAddress"];
     [dictionary setObject:@"NSArray" forKey:@"profiles"];
     [dictionary setObject:@"NSArray" forKey:@"statuses"];
-    [dictionary setObject:@"JRObjectId" forKey:@"captureUserId"];
-    [dictionary setObject:@"JRDateTime" forKey:@"lastUpdated"];
-    [dictionary setObject:@"JRUuid" forKey:@"uuid"];
+    [dictionary setObject:@"JRBoolean" forKey:@"termsAndConditions"];
+    [dictionary setObject:@"JRDateTime" forKey:@"termsAndConditionsDate"];
     [dictionary setObject:@"JRDateTime" forKey:@"created"];
-
+    [dictionary setObject:@"JRDateTime" forKey:@"lastUpdated"];
+    [dictionary setObject:@"JRObjectId" forKey:@"captureUserId"];
+    [dictionary setObject:@"JRUuid" forKey:@"uuid"];
+    
     return [NSDictionary dictionaryWithDictionary:dictionary];
 }
 
