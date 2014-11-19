@@ -63,7 +63,7 @@
 }
 
 - (NSArray *)scopes {
-    return @[@"https://www.googleapis.com/auth/plus.login"];
+    return @[@"https://www.googleapis.com/auth/plus.login", @"https://www.googleapis.com/auth/userinfo.email"];
 }
 
 - (void)finishedWithAuth:(id)auth error:(NSError *)error __unused {
