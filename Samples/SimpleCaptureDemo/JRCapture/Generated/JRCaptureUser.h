@@ -42,22 +42,35 @@
  **/
 @interface JRCaptureUser : JRCaptureObject
 @property (nonatomic, copy)     NSString *aboutMe; /**< The object's \e aboutMe property */ 
-@property (nonatomic, copy)     JRDate *birthday; /**< The object's \e birthday property @note A ::JRDate property is a property of type \ref typesTable "date" and a typedef of \e NSDate. The accepted format should be an ISO 8601 date string (e.g., <code>yyyy-MM-dd</code>) */ 
-@property (nonatomic, copy)     NSString *currentLocation; /**< The object's \e currentLocation property */ 
-@property (nonatomic, copy)     JRJsonObject *display; /**< The object's \e display property @note A ::JRJsonObject property is a property of type \ref typesTable "json", which can be an \e NSDictionary, \e NSArray, \e NSString, etc., and is therefore is a typedef of \e NSObject */ 
+@property (nonatomic, copy)     JRDate *birthday; /**< The object's \e birthday property @note A ::JRDate property is a property of type \ref typesTable "date" and a typedef of \e NSDate. The accepted format should be an ISO 8601 date string (e.g., <code>yyyy-MM-dd</code>) */
+@property (nonatomic, copy)     NSString *ccomGuid; /**< The object's \e ccomGuid property */
+@property (nonatomic, copy)     NSString *currentLocation; /**< The object's \e currentLocation property */
+@property (nonatomic, copy)     JRDateTime *deactivateAccount; /**< The object's \e deactivateAccount property @note A ::JRDateTime property is a property of type \ref typesTable "dateTime" and a typedef of \e NSDate. The accepted format should be an ISO 8601 dateTime string (e.g., <code>yyyy-MM-dd HH:mm:ss.SSSSSS ZZZ</code>) */
+@property (nonatomic, copy)     NSString *dietaryPreferences; /**< The object's \e dietaryPreferences property */
+@property (nonatomic, copy)     JRJsonObject *display; /**< The object's \e display property @note A ::JRJsonObject property is a property of type \ref typesTable "json", which can be an \e NSDictionary, \e NSArray, \e NSString, etc., and is therefore is a typedef of \e NSObject */
 @property (nonatomic, copy)     NSString *displayName; /**< The name of this Contact, suitable for display to end-users. */ 
 @property (nonatomic, copy)     NSString *email; /**< The object's \e email property */ 
-@property (nonatomic, copy)     JRDateTime *emailVerified; /**< The object's \e emailVerified property @note A ::JRDateTime property is a property of type \ref typesTable "dateTime" and a typedef of \e NSDate. The accepted format should be an ISO 8601 dateTime string (e.g., <code>yyyy-MM-dd HH:mm:ss.SSSSSS ZZZ</code>) */ 
-@property (nonatomic, copy)     NSString *familyName; /**< The object's \e familyName property */ 
+@property (nonatomic, copy)     JRDateTime *emailVerified; /**< The object's \e emailVerified property @note A ::JRDateTime property is a property of type \ref typesTable "dateTime" and a typedef of \e NSDate. The accepted format should be an ISO 8601 dateTime string (e.g., <code>yyyy-MM-dd HH:mm:ss.SSSSSS ZZZ</code>) */
+@property (nonatomic, copy)     NSString *familyName; /**< The object's \e familyName property */
+@property (nonatomic, copy)     NSString *favoriteDepartment; /**< The object's \e favoriteDepartment property */
+@property (nonatomic, copy)     NSString *favoriteStore; /**< The object's \e favoriteStore property */
+@property (nonatomic, copy)     NSString *ficAltId; /**< The object's \e ficAltId property */
+@property (nonatomic, copy)     NSString *freshIdeasCardNumber; /**< The object's \e freshIdeasCardNumber property */
 @property (nonatomic, copy)     NSString *gender; /**< The object's \e gender property */ 
 @property (nonatomic, copy)     NSString *givenName; /**< The object's \e givenName property */ 
 @property (nonatomic, copy)     JRDateTime *lastLogin; /**< The object's \e lastLogin property @note A ::JRDateTime property is a property of type \ref typesTable "dateTime" and a typedef of \e NSDate. The accepted format should be an ISO 8601 dateTime string (e.g., <code>yyyy-MM-dd HH:mm:ss.SSSSSS ZZZ</code>) */ 
-@property (nonatomic, copy)     NSString *middleName; /**< The object's \e middleName property */ 
+@property (nonatomic, copy)     NSString *middleName; /**< The object's \e middleName property */
+@property (nonatomic, copy)     JRBoolean *optInEmail; /**< The object's \e optInEmail property @note A ::JRBoolean property is a property of type \ref typesTable "boolean" and a typedef of \e NSNumber. The accepted values can only be <code>[NSNumber numberWithBool:<em>myBool</em>]</code> or <code>nil</code> */
+@property (nonatomic, copy)     JRDateTime *optInEmailDate; /**< The object's \e optInEmailDate property @note A ::JRDateTime property is a property of type \ref typesTable "dateTime" and a typedef of \e NSDate. The accepted format should be an ISO 8601 dateTime string (e.g., <code>yyyy-MM-dd HH:mm:ss.SSSSSS ZZZ</code>) */
+@property (nonatomic, copy)     JRBoolean *optInSMS; /**< The object's \e optInSMS property @note A ::JRBoolean property is a property of type \ref typesTable "boolean" and a typedef of \e NSNumber. The accepted values can only be <code>[NSNumber numberWithBool:<em>myBool</em>]</code> or <code>nil</code> */
+@property (nonatomic, copy)     JRDateTime *optInSMSDate; /**< The object's \e optInSMSDate property @note A ::JRDateTime property is a property of type \ref typesTable "dateTime" and a typedef of \e NSDate. The accepted format should be an ISO 8601 dateTime string (e.g., <code>yyyy-MM-dd HH:mm:ss.SSSSSS ZZZ</code>) */
 @property (nonatomic, copy)     JRPassword *password; /**< The object's \e password property @note A ::JRPassword property is a property of type \ref typesTable "password", which can be either an \e NSString or \e NSDictionary, and is therefore is a typedef of \e NSObject */ 
 @property (nonatomic, copy)     NSArray *photos; /**< The object's \e photos property @note This is an array of JRPhotosElement objects */ 
 @property (nonatomic,strong)    JRPrimaryAddress *primaryAddress; /**< The object's \e primaryAddress property */ 
 @property (nonatomic, copy)     NSArray *profiles; /**< The object's \e profiles property @note This is an array of JRProfilesElement objects */ 
-@property (nonatomic, copy)     NSArray *statuses; /**< The object's \e statuses property @note This is an array of JRStatusesElement objects */ 
+@property (nonatomic, copy)     NSArray *statuses; /**< The object's \e statuses property @note This is an array of JRStatusesElement objects */
+@property (nonatomic, copy)     JRBoolean *termsAndConditions; /**< The object's \e termsAndConditions property @note A ::JRBoolean property is a property of type \ref typesTable "boolean" and a typedef of \e NSNumber. The accepted values can only be <code>[NSNumber numberWithBool:<em>myBool</em>]</code> or <code>nil</code> */
+@property (nonatomic, copy)     JRDateTime *termsAndConditionsDate; /**< The object's \e termsAndConditionsDate property @note A ::JRDateTime property is a property of type \ref typesTable "dateTime" and a typedef of \e NSDate. The accepted format should be an ISO 8601 dateTime string (e.g., <code>yyyy-MM-dd HH:mm:ss.SSSSSS ZZZ</code>) */
 @property (nonatomic, readonly) JRObjectId *captureUserId; /**< Simple identifier for this entity @note The \e id of the object should not be set. */ 
 @property (nonatomic, readonly) JRDateTime *lastUpdated; /**< When this entity was last updated @note A ::JRDateTime property is a property of type \ref typesTable "dateTime" and a typedef of \e NSDate. The accepted format should be an ISO 8601 dateTime string (e.g., <code>yyyy-MM-dd HH:mm:ss.SSSSSS ZZZ</code>) */ 
 @property (nonatomic, readonly) JRUuid *uuid; /**< Globally unique indentifier for this entity @note A ::JRUuid property is a property of type \ref typesTable "uuid" and a typedef of \e NSString */ 
@@ -302,6 +315,41 @@
  * TODO: Doxygen doc
  **/
 - (void)updateOnCaptureForDelegate:(id<JRCaptureObjectDelegate>)delegate context:(NSObject *)context;
+/*@}*/
+
+/**
+ * @name Primitive Getters/Setters
+ **/
+/*@{*/
+/**
+ * Returns the primitive boolean value stored in the optInEmail property. Will return \c NO if the
+ * optInEmail is  nil. **/
+- (BOOL)getOptInEmailBoolValue;
+
+/**
+ * Sets the optInEmail property to a the primitive boolean value.
+ **/
+- (void)setOptInEmailWithBool:(BOOL)boolVal;
+
+/**
+ * Returns the primitive boolean value stored in the optInSMS property. Will return \c NO if the
+ * optInSMS is  nil. **/
+- (BOOL)getOptInSMSBoolValue;
+
+/**
+ * Sets the optInSMS property to a the primitive boolean value.
+ **/
+- (void)setOptInSMSWithBool:(BOOL)boolVal;
+
+/**
+ * Returns the primitive boolean value stored in the termsAndConditions property. Will return \c NO if the
+ * termsAndConditions is  nil. **/
+- (BOOL)getTermsAndConditionsBoolValue;
+
+/**
+ * Sets the termsAndConditions property to a the primitive boolean value.
+ **/
+- (void)setTermsAndConditionsWithBool:(BOOL)boolVal;
 /*@}*/
 
 @end
